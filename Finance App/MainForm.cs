@@ -73,6 +73,13 @@ namespace Finance_App
         }
         public void LoadTransactions()
         {
+            DateTime today = DateTime.Today;
+            DateTime weekStart = DateTime.Today.AddDays(-(int)today.DayOfWeek);
+            double totalDailyIncome = 0;
+            double totalDailyExpense = 0;
+            double totalWeeklyIncome = 0;
+            double totalWeeklyExpense = 0;
+
             listTransactions.Items.Clear();
             foreach (DataStore.TransactionsRow row in DataStore.Tables["Transactions"].Rows)
             {
@@ -86,7 +93,43 @@ namespace Finance_App
 
                 ListViewItem item = new ListViewItem(listItem);
                 listTransactions.Items.Add(item);
+
+                
+                if (DateTime.Parse(row["Date"].ToString()) == today)
+                {
+                    if (((TransactionType)row["Type"]) == TransactionType.Income)
+                    {
+                        totalDailyIncome += double.Parse(row["Amount"].ToString());
+                    }
+                    else
+                    {
+                        totalDailyExpense += double.Parse(row["Amount"].ToString());
+                    }
+                }
+
+                if (DateTime.Parse(row["Date"].ToString()) >= weekStart)
+                {
+                    if (((TransactionType)row["Type"]) == TransactionType.Income)
+                    {
+                        totalWeeklyIncome += double.Parse(row["Amount"].ToString());
+                    }
+                    else
+                    {
+                        totalWeeklyExpense += double.Parse(row["Amount"].ToString());
+                    }
+                }
             }
+            lblTotalDailyExpense.Text = totalDailyExpense.ToString();
+            lblTotalDailyIncome.Text = totalDailyIncome.ToString();
+            lblTotalWeeklyIncome.Text = totalWeeklyIncome.ToString();
+            lblTotalWeeklyExpense.Text = totalWeeklyExpense.ToString();
+
+        }
+
+        private void ViewReport(object sender, EventArgs e)
+        {
+            ReportForm reportForm = new ReportForm();
+            reportForm.ShowDialog();
         }
     }
 }

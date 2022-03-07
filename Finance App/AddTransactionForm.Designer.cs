@@ -99,9 +99,9 @@
             this.chkRecurring.AutoSize = true;
             this.chkRecurring.Location = new System.Drawing.Point(114, 143);
             this.chkRecurring.Name = "chkRecurring";
-            this.chkRecurring.Size = new System.Drawing.Size(112, 17);
+            this.chkRecurring.Size = new System.Drawing.Size(111, 17);
             this.chkRecurring.TabIndex = 23;
-            this.chkRecurring.Text = "Recurring Monthly";
+            this.chkRecurring.Text = "Recurring Weekly";
             this.chkRecurring.UseVisualStyleBackColor = true;
             // 
             // label3

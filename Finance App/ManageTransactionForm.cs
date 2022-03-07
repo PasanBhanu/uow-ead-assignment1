@@ -57,7 +57,7 @@ namespace Finance_App
             {
                 transaction.CategoryId = (int)row["Id"];
             }
-            transaction.CreateDatasetRow(DataStore);
+            transaction.UpdateDatasetRow(DataRow);
 
             MessageBox.Show("Transaction updated successfully!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
