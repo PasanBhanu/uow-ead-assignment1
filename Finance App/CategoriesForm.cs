@@ -40,6 +40,17 @@ namespace Finance_App
         private void DeleteCategory(object sender, EventArgs e)
         {
             int id = int.Parse(listCategories.SelectedItems[0].SubItems[0].Text);
+
+            // Validations
+            DataTable tblTransactions = DataStore.Tables["Transactions"];
+            DataRow[] results = tblTransactions.Select("CategoryId = '" + id + "'");
+            if (results.Length > 0)
+            {
+                MessageBox.Show("This category has transactions. Delete not permitted!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Delete category
             DialogResult dialogResult = MessageBox.Show("Are you sure do you want to delete this category?", "Simply Finance App", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
