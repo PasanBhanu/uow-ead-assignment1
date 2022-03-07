@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnViewCategories = new System.Windows.Forms.Button();
             this.btnAddTransaction = new System.Windows.Forms.Button();
             this.btnEditTransaction = new System.Windows.Forms.Button();
@@ -60,7 +61,7 @@
             this.btnViewCategories.Location = new System.Drawing.Point(667, 357);
             this.btnViewCategories.Name = "btnViewCategories";
             this.btnViewCategories.Size = new System.Drawing.Size(121, 23);
-            this.btnViewCategories.TabIndex = 0;
+            this.btnViewCategories.TabIndex = 1;
             this.btnViewCategories.Text = "View Categories";
             this.btnViewCategories.UseVisualStyleBackColor = true;
             this.btnViewCategories.Click += new System.EventHandler(this.ViewCategories);
@@ -70,7 +71,7 @@
             this.btnAddTransaction.Location = new System.Drawing.Point(12, 415);
             this.btnAddTransaction.Name = "btnAddTransaction";
             this.btnAddTransaction.Size = new System.Drawing.Size(121, 23);
-            this.btnAddTransaction.TabIndex = 1;
+            this.btnAddTransaction.TabIndex = 4;
             this.btnAddTransaction.Text = "Add Transaction";
             this.btnAddTransaction.UseVisualStyleBackColor = true;
             this.btnAddTransaction.Click += new System.EventHandler(this.AddTransaction);
@@ -81,7 +82,7 @@
             this.btnEditTransaction.Location = new System.Drawing.Point(139, 415);
             this.btnEditTransaction.Name = "btnEditTransaction";
             this.btnEditTransaction.Size = new System.Drawing.Size(121, 23);
-            this.btnEditTransaction.TabIndex = 2;
+            this.btnEditTransaction.TabIndex = 5;
             this.btnEditTransaction.Text = "Edit Transaction";
             this.btnEditTransaction.UseVisualStyleBackColor = true;
             this.btnEditTransaction.Click += new System.EventHandler(this.EditTransaction);
@@ -92,7 +93,7 @@
             this.btnDeleteTransaction.Location = new System.Drawing.Point(266, 415);
             this.btnDeleteTransaction.Name = "btnDeleteTransaction";
             this.btnDeleteTransaction.Size = new System.Drawing.Size(121, 23);
-            this.btnDeleteTransaction.TabIndex = 3;
+            this.btnDeleteTransaction.TabIndex = 6;
             this.btnDeleteTransaction.Text = "Delete Transaction";
             this.btnDeleteTransaction.UseVisualStyleBackColor = true;
             this.btnDeleteTransaction.Click += new System.EventHandler(this.DeleteTransaction);
@@ -102,7 +103,7 @@
             this.btnReport.Location = new System.Drawing.Point(667, 386);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(121, 23);
-            this.btnReport.TabIndex = 4;
+            this.btnReport.TabIndex = 2;
             this.btnReport.Text = "Report";
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.ViewReport);
@@ -112,9 +113,10 @@
             this.btnAboutMe.Location = new System.Drawing.Point(667, 415);
             this.btnAboutMe.Name = "btnAboutMe";
             this.btnAboutMe.Size = new System.Drawing.Size(121, 23);
-            this.btnAboutMe.TabIndex = 5;
+            this.btnAboutMe.TabIndex = 3;
             this.btnAboutMe.Text = "About Me";
             this.btnAboutMe.UseVisualStyleBackColor = true;
+            this.btnAboutMe.Click += new System.EventHandler(this.ShowAboutMe);
             // 
             // listTransactions
             // 
@@ -131,7 +133,7 @@
             this.listTransactions.Location = new System.Drawing.Point(12, 12);
             this.listTransactions.Name = "listTransactions";
             this.listTransactions.Size = new System.Drawing.Size(636, 388);
-            this.listTransactions.TabIndex = 6;
+            this.listTransactions.TabIndex = 0;
             this.listTransactions.UseCompatibleStateImageBehavior = false;
             this.listTransactions.View = System.Windows.Forms.View.Details;
             this.listTransactions.SelectedIndexChanged += new System.EventHandler(this.DisplayTransactionOptions);
@@ -285,6 +287,9 @@
             this.Controls.Add(this.btnEditTransaction);
             this.Controls.Add(this.btnAddTransaction);
             this.Controls.Add(this.btnViewCategories);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simply Finance App";

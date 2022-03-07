@@ -19,7 +19,7 @@ namespace Finance_App
         {
             InitializeComponent();
 
-            // Add Default Data
+            // Add default data
             Category categoryIncome = new Category();
             categoryIncome.Title = "Default Income";
             categoryIncome.Type = TransactionType.Income;
@@ -68,6 +68,10 @@ namespace Finance_App
         private void LoadFormData(object sender, EventArgs e)
         {
             LoadTransactions();
+
+            // Show login form
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
         }
         public void LoadTransactions()
         {
@@ -144,6 +148,12 @@ namespace Finance_App
                 btnEditTransaction.Enabled = false;
                 btnDeleteTransaction.Enabled = false;
             }
+        }
+
+        private void ShowAboutMe(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
     }
 }

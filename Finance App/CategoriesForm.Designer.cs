@@ -112,6 +112,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CategoriesForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categories";
             this.Load += new System.EventHandler(this.LoadFormData);

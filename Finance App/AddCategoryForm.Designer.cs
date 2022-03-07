@@ -40,7 +40,7 @@
             this.btnSave.Location = new System.Drawing.Point(241, 65);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.AddCategory);
@@ -73,14 +73,14 @@
             this.cmbCategoryType.Location = new System.Drawing.Point(119, 38);
             this.cmbCategoryType.Name = "cmbCategoryType";
             this.cmbCategoryType.Size = new System.Drawing.Size(197, 21);
-            this.cmbCategoryType.TabIndex = 17;
+            this.cmbCategoryType.TabIndex = 1;
             // 
             // txtCategoryName
             // 
             this.txtCategoryName.Location = new System.Drawing.Point(119, 12);
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(197, 20);
-            this.txtCategoryName.TabIndex = 15;
+            this.txtCategoryName.TabIndex = 0;
             // 
             // AddCategoryForm
             // 

@@ -45,14 +45,14 @@
             this.cmbCategoryType.Location = new System.Drawing.Point(124, 38);
             this.cmbCategoryType.Name = "cmbCategoryType";
             this.cmbCategoryType.Size = new System.Drawing.Size(197, 21);
-            this.cmbCategoryType.TabIndex = 14;
+            this.cmbCategoryType.TabIndex = 1;
             // 
             // txtCategoryName
             // 
             this.txtCategoryName.Location = new System.Drawing.Point(124, 12);
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(197, 20);
-            this.txtCategoryName.TabIndex = 12;
+            this.txtCategoryName.TabIndex = 0;
             // 
             // label2
             // 
@@ -77,7 +77,7 @@
             this.btnSave.Location = new System.Drawing.Point(246, 65);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.UpdateCategory);
@@ -96,6 +96,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ManageCategoryForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Category";
             this.ResumeLayout(false);

@@ -51,7 +51,7 @@
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(197, 21);
             this.cmbCategory.Sorted = true;
-            this.cmbCategory.TabIndex = 42;
+            this.cmbCategory.TabIndex = 4;
             // 
             // label6
             // 
@@ -67,7 +67,7 @@
             this.btnSave.Location = new System.Drawing.Point(236, 166);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 40;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.UpdateTransaction);
@@ -105,7 +105,7 @@
             this.chkRecurring.Location = new System.Drawing.Point(114, 143);
             this.chkRecurring.Name = "chkRecurring";
             this.chkRecurring.Size = new System.Drawing.Size(111, 17);
-            this.chkRecurring.TabIndex = 36;
+            this.chkRecurring.TabIndex = 5;
             this.chkRecurring.Text = "Recurring Weekly";
             this.chkRecurring.UseVisualStyleBackColor = true;
             // 
@@ -114,21 +114,21 @@
             this.txtAmount.Location = new System.Drawing.Point(114, 64);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(197, 20);
-            this.txtAmount.TabIndex = 35;
+            this.txtAmount.TabIndex = 2;
             // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(114, 38);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(197, 20);
-            this.txtDescription.TabIndex = 34;
+            this.txtDescription.TabIndex = 1;
             // 
             // dtpDate
             // 
             this.dtpDate.Location = new System.Drawing.Point(114, 12);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(197, 20);
-            this.dtpDate.TabIndex = 33;
+            this.dtpDate.TabIndex = 0;
             // 
             // cmbTransactionType
             // 
@@ -140,7 +140,7 @@
             this.cmbTransactionType.Location = new System.Drawing.Point(114, 89);
             this.cmbTransactionType.Name = "cmbTransactionType";
             this.cmbTransactionType.Size = new System.Drawing.Size(197, 21);
-            this.cmbTransactionType.TabIndex = 32;
+            this.cmbTransactionType.TabIndex = 3;
             // 
             // label2
             // 
@@ -178,7 +178,11 @@
             this.Controls.Add(this.cmbTransactionType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ManageTransactionForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Transaction";
             this.ResumeLayout(false);

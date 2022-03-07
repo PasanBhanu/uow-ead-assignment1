@@ -52,7 +52,7 @@
             this.listReport.Location = new System.Drawing.Point(12, 33);
             this.listReport.Name = "listReport";
             this.listReport.Size = new System.Drawing.Size(320, 204);
-            this.listReport.TabIndex = 7;
+            this.listReport.TabIndex = 0;
             this.listReport.UseCompatibleStateImageBehavior = false;
             this.listReport.View = System.Windows.Forms.View.Details;
             // 
@@ -141,7 +141,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listReport);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ReportForm";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Report Form";
             this.ResumeLayout(false);
