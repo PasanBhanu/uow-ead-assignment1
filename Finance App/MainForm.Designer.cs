@@ -28,93 +28,165 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnViewCategories = new System.Windows.Forms.Button();
+            this.btnAddTransaction = new System.Windows.Forms.Button();
+            this.btnEditTransaction = new System.Windows.Forms.Button();
+            this.btnDeleteTransaction = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnAboutMe = new System.Windows.Forms.Button();
+            this.listTransactions = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // button1
+            // btnViewCategories
             // 
-            this.button1.Location = new System.Drawing.Point(667, 357);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "View Categories";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnViewCategories.Location = new System.Drawing.Point(667, 357);
+            this.btnViewCategories.Name = "btnViewCategories";
+            this.btnViewCategories.Size = new System.Drawing.Size(121, 23);
+            this.btnViewCategories.TabIndex = 0;
+            this.btnViewCategories.Text = "View Categories";
+            this.btnViewCategories.UseVisualStyleBackColor = true;
+            this.btnViewCategories.Click += new System.EventHandler(this.ViewCategories);
             // 
-            // button2
+            // btnAddTransaction
             // 
-            this.button2.Location = new System.Drawing.Point(12, 357);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add Transaction";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAddTransaction.Location = new System.Drawing.Point(12, 415);
+            this.btnAddTransaction.Name = "btnAddTransaction";
+            this.btnAddTransaction.Size = new System.Drawing.Size(121, 23);
+            this.btnAddTransaction.TabIndex = 1;
+            this.btnAddTransaction.Text = "Add Transaction";
+            this.btnAddTransaction.UseVisualStyleBackColor = true;
+            this.btnAddTransaction.Click += new System.EventHandler(this.AddTransaction);
             // 
-            // button3
+            // btnEditTransaction
             // 
-            this.button3.Location = new System.Drawing.Point(139, 357);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Edit Transaction";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEditTransaction.Location = new System.Drawing.Point(139, 415);
+            this.btnEditTransaction.Name = "btnEditTransaction";
+            this.btnEditTransaction.Size = new System.Drawing.Size(121, 23);
+            this.btnEditTransaction.TabIndex = 2;
+            this.btnEditTransaction.Text = "Edit Transaction";
+            this.btnEditTransaction.UseVisualStyleBackColor = true;
+            this.btnEditTransaction.Click += new System.EventHandler(this.EditTransaction);
             // 
-            // button4
+            // btnDeleteTransaction
             // 
-            this.button4.Location = new System.Drawing.Point(266, 357);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(121, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Delete Transaction";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDeleteTransaction.Location = new System.Drawing.Point(266, 415);
+            this.btnDeleteTransaction.Name = "btnDeleteTransaction";
+            this.btnDeleteTransaction.Size = new System.Drawing.Size(121, 23);
+            this.btnDeleteTransaction.TabIndex = 3;
+            this.btnDeleteTransaction.Text = "Delete Transaction";
+            this.btnDeleteTransaction.UseVisualStyleBackColor = true;
+            this.btnDeleteTransaction.Click += new System.EventHandler(this.DeleteTransaction);
             // 
-            // button5
+            // btnSettings
             // 
-            this.button5.Location = new System.Drawing.Point(667, 386);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(121, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Settings";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnSettings.Location = new System.Drawing.Point(667, 386);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(121, 23);
+            this.btnSettings.TabIndex = 4;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnAboutMe
             // 
-            this.button6.Location = new System.Drawing.Point(667, 415);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(121, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "About Me";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnAboutMe.Location = new System.Drawing.Point(667, 415);
+            this.btnAboutMe.Name = "btnAboutMe";
+            this.btnAboutMe.Size = new System.Drawing.Size(121, 23);
+            this.btnAboutMe.TabIndex = 5;
+            this.btnAboutMe.Text = "About Me";
+            this.btnAboutMe.UseVisualStyleBackColor = true;
+            // 
+            // listTransactions
+            // 
+            this.listTransactions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listTransactions.FullRowSelect = true;
+            this.listTransactions.GridLines = true;
+            this.listTransactions.HideSelection = false;
+            this.listTransactions.Location = new System.Drawing.Point(12, 12);
+            this.listTransactions.Name = "listTransactions";
+            this.listTransactions.Size = new System.Drawing.Size(636, 388);
+            this.listTransactions.TabIndex = 6;
+            this.listTransactions.UseCompatibleStateImageBehavior = false;
+            this.listTransactions.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 40;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Date";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Description";
+            this.columnHeader5.Width = 200;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.DisplayIndex = 4;
+            this.columnHeader3.Text = "Type";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.DisplayIndex = 5;
+            this.columnHeader4.Text = "Amount";
+            this.columnHeader4.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.DisplayIndex = 3;
+            this.columnHeader6.Text = "Category";
+            this.columnHeader6.Width = 100;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.listTransactions);
+            this.Controls.Add(this.btnAboutMe);
+            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.btnDeleteTransaction);
+            this.Controls.Add(this.btnEditTransaction);
+            this.Controls.Add(this.btnAddTransaction);
+            this.Controls.Add(this.btnViewCategories);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simply Finance App";
+            this.Load += new System.EventHandler(this.LoadFormData);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnViewCategories;
+        private System.Windows.Forms.Button btnAddTransaction;
+        private System.Windows.Forms.Button btnEditTransaction;
+        private System.Windows.Forms.Button btnDeleteTransaction;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnAboutMe;
+        private System.Windows.Forms.ListView listTransactions;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 

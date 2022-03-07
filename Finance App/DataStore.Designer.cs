@@ -487,8 +487,7 @@ namespace Finance_App {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("CategoryKey", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AutoIncrementSeed = 1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
                 this.columnMonthlyBudget.DefaultValue = ((double)(0D));
@@ -629,13 +628,15 @@ namespace Finance_App {
             
             private global::System.Data.DataColumn columnCategoryId;
             
-            private global::System.Data.DataColumn columnTitle;
+            private global::System.Data.DataColumn columnDescription;
             
             private global::System.Data.DataColumn columnAmount;
             
             private global::System.Data.DataColumn columnDate;
             
             private global::System.Data.DataColumn columnIsRecurring;
+            
+            private global::System.Data.DataColumn columnType;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -688,9 +689,9 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
+            public global::System.Data.DataColumn DescriptionColumn {
                 get {
-                    return this.columnTitle;
+                    return this.columnDescription;
                 }
             }
             
@@ -715,6 +716,14 @@ namespace Finance_App {
             public global::System.Data.DataColumn IsRecurringColumn {
                 get {
                     return this.columnIsRecurring;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TypeColumn {
+                get {
+                    return this.columnType;
                 }
             }
             
@@ -755,15 +764,16 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TransactionsRow AddTransactionsRow(CategoriesRow parentCategoriesRowByCategories_Transactions, string Title, string Amount, string Date, string IsRecurring) {
+            public TransactionsRow AddTransactionsRow(CategoriesRow parentCategoriesRowByCategories_Transactions, string Description, double Amount, System.DateTime Date, bool IsRecurring, int Type) {
                 TransactionsRow rowTransactionsRow = ((TransactionsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        Title,
+                        Description,
                         Amount,
                         Date,
-                        IsRecurring};
+                        IsRecurring,
+                        Type};
                 if ((parentCategoriesRowByCategories_Transactions != null)) {
                     columnValuesArray[1] = parentCategoriesRowByCategories_Transactions[0];
                 }
@@ -798,10 +808,11 @@ namespace Finance_App {
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
                 this.columnCategoryId = base.Columns["CategoryId"];
-                this.columnTitle = base.Columns["Title"];
+                this.columnDescription = base.Columns["Description"];
                 this.columnAmount = base.Columns["Amount"];
                 this.columnDate = base.Columns["Date"];
                 this.columnIsRecurring = base.Columns["IsRecurring"];
+                this.columnType = base.Columns["Type"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -811,19 +822,20 @@ namespace Finance_App {
                 base.Columns.Add(this.columnId);
                 this.columnCategoryId = new global::System.Data.DataColumn("CategoryId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategoryId);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
-                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount);
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
-                this.columnIsRecurring = new global::System.Data.DataColumn("IsRecurring", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnIsRecurring = new global::System.Data.DataColumn("IsRecurring", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIsRecurring);
+                this.columnType = new global::System.Data.DataColumn("Type", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
+                this.columnId.AutoIncrementSeed = 1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
             }
@@ -1116,26 +1128,26 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Title {
+            public string Description {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactions.TitleColumn]));
+                        return ((string)(this[this.tableTransactions.DescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'Transactions\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'Transactions\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTransactions.TitleColumn] = value;
+                    this[this.tableTransactions.DescriptionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Amount {
+            public double Amount {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactions.AmountColumn]));
+                        return ((double)(this[this.tableTransactions.AmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'Transactions\' is DBNull.", e);
@@ -1148,10 +1160,10 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Date {
+            public System.DateTime Date {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactions.DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableTransactions.DateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'Transactions\' is DBNull.", e);
@@ -1164,10 +1176,10 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string IsRecurring {
+            public bool IsRecurring {
                 get {
                     try {
-                        return ((string)(this[this.tableTransactions.IsRecurringColumn]));
+                        return ((bool)(this[this.tableTransactions.IsRecurringColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'IsRecurring\' in table \'Transactions\' is DBNull.", e);
@@ -1175,6 +1187,22 @@ namespace Finance_App {
                 }
                 set {
                     this[this.tableTransactions.IsRecurringColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Type {
+                get {
+                    try {
+                        return ((int)(this[this.tableTransactions.TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'Transactions\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTransactions.TypeColumn] = value;
                 }
             }
             
@@ -1203,14 +1231,14 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tableTransactions.TitleColumn);
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tableTransactions.DescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tableTransactions.TitleColumn] = global::System.Convert.DBNull;
+            public void SetDescriptionNull() {
+                this[this.tableTransactions.DescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1247,6 +1275,18 @@ namespace Finance_App {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetIsRecurringNull() {
                 this[this.tableTransactions.IsRecurringColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTypeNull() {
+                return this.IsNull(this.tableTransactions.TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTypeNull() {
+                this[this.tableTransactions.TypeColumn] = global::System.Convert.DBNull;
             }
         }
         
