@@ -58,14 +58,29 @@ namespace Finance_App
             listCategories.Items.Clear(); 
             foreach (DataStore.CategoriesRow row in DataStore.Tables["Categories"].Rows)
             {
-                string[] listItem = new string[4];
+                string[] listItem = new string[3];
                 listItem[0] = row["Id"].ToString();
                 listItem[1] = row["Title"].ToString();
                 listItem[2] = ((TransactionType) row["Type"]).ToString();
-                listItem[3] = row["MonthlyBudget"].ToString();
 
                 ListViewItem item = new ListViewItem(listItem);
                 listCategories.Items.Add(item);
+            }
+
+            btnEditCategory.Enabled = false;
+            btnDeleteCategory.Enabled = false;
+        }
+
+        private void DisplayCategoryOptions(object sender, EventArgs e)
+        {
+            if (listCategories.SelectedItems.Count == 1)
+            {
+                btnEditCategory.Enabled = true;
+                btnDeleteCategory.Enabled = true;
+            } else
+            {
+                btnEditCategory.Enabled = false;
+                btnDeleteCategory.Enabled = false;
             }
         }
     }

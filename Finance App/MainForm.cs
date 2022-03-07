@@ -23,13 +23,11 @@ namespace Finance_App
             Category categoryIncome = new Category();
             categoryIncome.Title = "Default Income";
             categoryIncome.Type = TransactionType.Income;
-            categoryIncome.MonthlyBudget = 0;
             categoryIncome.CreateDatasetRow(DataStore);
 
             Category categoryExpense = new Category();
             categoryExpense.Title = "Default Expense";
             categoryExpense.Type = TransactionType.Expense;
-            categoryExpense.MonthlyBudget = 0;
             categoryExpense.CreateDatasetRow(DataStore);
         }
 
@@ -124,12 +122,28 @@ namespace Finance_App
             lblTotalWeeklyIncome.Text = totalWeeklyIncome.ToString();
             lblTotalWeeklyExpense.Text = totalWeeklyExpense.ToString();
 
+            btnEditTransaction.Enabled = false;
+            btnDeleteTransaction.Enabled = false;
         }
 
         private void ViewReport(object sender, EventArgs e)
         {
             ReportForm reportForm = new ReportForm();
             reportForm.ShowDialog();
+        }
+
+        private void DisplayTransactionOptions(object sender, EventArgs e)
+        {
+            if (listTransactions.SelectedItems.Count == 1)
+            {
+                btnEditTransaction.Enabled = true;
+                btnDeleteTransaction.Enabled = true;
+            }
+            else
+            {
+                btnEditTransaction.Enabled = false;
+                btnDeleteTransaction.Enabled = false;
+            }
         }
     }
 }

@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.cmbCategoryType = new System.Windows.Forms.ComboBox();
-            this.txtMonthlyBudget = new System.Windows.Forms.TextBox();
             this.txtCategoryName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
@@ -49,28 +47,12 @@
             this.cmbCategoryType.Size = new System.Drawing.Size(197, 21);
             this.cmbCategoryType.TabIndex = 14;
             // 
-            // txtMonthlyBudget
-            // 
-            this.txtMonthlyBudget.Location = new System.Drawing.Point(124, 64);
-            this.txtMonthlyBudget.Name = "txtMonthlyBudget";
-            this.txtMonthlyBudget.Size = new System.Drawing.Size(197, 20);
-            this.txtMonthlyBudget.TabIndex = 13;
-            // 
             // txtCategoryName
             // 
             this.txtCategoryName.Location = new System.Drawing.Point(124, 12);
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.Size = new System.Drawing.Size(197, 20);
             this.txtCategoryName.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Monthly Budget";
             // 
             // label2
             // 
@@ -92,7 +74,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(246, 90);
+            this.btnSave.Location = new System.Drawing.Point(246, 65);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -104,14 +86,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 122);
+            this.ClientSize = new System.Drawing.Size(336, 96);
             this.Controls.Add(this.cmbCategoryType);
-            this.Controls.Add(this.txtMonthlyBudget);
             this.Controls.Add(this.txtCategoryName);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ManageCategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Category";
@@ -123,9 +106,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox cmbCategoryType;
-        private System.Windows.Forms.TextBox txtMonthlyBudget;
         private System.Windows.Forms.TextBox txtCategoryName;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;

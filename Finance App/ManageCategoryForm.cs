@@ -20,16 +20,25 @@ namespace Finance_App
         public ManageCategoryForm(int id)
         {
             InitializeComponent();
+
+            // Load category object
             DataRow = (DataStore.CategoriesRow)DataStore.Tables["Categories"].Rows.Find(id);
             category.LoadDatasetRow(DataRow);
 
             txtCategoryName.Text = category.Title;
             cmbCategoryType.Text = category.Type.ToString();
-            txtMonthlyBudget.Text = category.MonthlyBudget.ToString();
         }
 
         private void UpdateCategory(object sender, EventArgs e)
         {
+            // Validations
+            if (txtCategoryName.Text == "" || cmbCategoryType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill all the data fields!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Update category object
             category.Title = txtCategoryName.Text;
             if (cmbCategoryType.SelectedItem.ToString() == "Income")
             {
@@ -39,7 +48,6 @@ namespace Finance_App
             {
                 category.Type = TransactionType.Expense;
             }
-            category.MonthlyBudget = Double.Parse(txtMonthlyBudget.Text);
             category.UpdateDatasetRow(DataRow);
 
             MessageBox.Show("Category updated successfully!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Information);

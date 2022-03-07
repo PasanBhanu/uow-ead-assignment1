@@ -93,6 +93,7 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(197, 20);
             this.txtAmount.TabIndex = 22;
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountInlineValidation);
             // 
             // chkRecurring
             // 

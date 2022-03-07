@@ -38,19 +38,19 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalDailyExpense = new System.Windows.Forms.Label();
+            this.lblTotalDailyIncome = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTotalWeeklyExpense = new System.Windows.Forms.Label();
+            this.lblTotalWeeklyIncome = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.lblTotalDailyIncome = new System.Windows.Forms.Label();
-            this.lblTotalDailyExpense = new System.Windows.Forms.Label();
-            this.lblTotalWeeklyIncome = new System.Windows.Forms.Label();
-            this.lblTotalWeeklyExpense = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +77,7 @@
             // 
             // btnEditTransaction
             // 
+            this.btnEditTransaction.Enabled = false;
             this.btnEditTransaction.Location = new System.Drawing.Point(139, 415);
             this.btnEditTransaction.Name = "btnEditTransaction";
             this.btnEditTransaction.Size = new System.Drawing.Size(121, 23);
@@ -87,6 +88,7 @@
             // 
             // btnDeleteTransaction
             // 
+            this.btnDeleteTransaction.Enabled = false;
             this.btnDeleteTransaction.Location = new System.Drawing.Point(266, 415);
             this.btnDeleteTransaction.Name = "btnDeleteTransaction";
             this.btnDeleteTransaction.Size = new System.Drawing.Size(121, 23);
@@ -132,6 +134,7 @@
             this.listTransactions.TabIndex = 6;
             this.listTransactions.UseCompatibleStateImageBehavior = false;
             this.listTransactions.View = System.Windows.Forms.View.Details;
+            this.listTransactions.SelectedIndexChanged += new System.EventHandler(this.DisplayTransactionOptions);
             // 
             // columnHeader1
             // 
@@ -148,6 +151,11 @@
             this.columnHeader5.Text = "Description";
             this.columnHeader5.Width = 200;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Category";
+            this.columnHeader6.Width = 100;
+            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Type";
@@ -156,11 +164,6 @@
             // 
             this.columnHeader4.Text = "Amount";
             this.columnHeader4.Width = 100;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Category";
-            this.columnHeader6.Width = 100;
             // 
             // groupBox1
             // 
@@ -175,6 +178,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Today Statistics";
             // 
+            // lblTotalDailyExpense
+            // 
+            this.lblTotalDailyExpense.AutoSize = true;
+            this.lblTotalDailyExpense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDailyExpense.Location = new System.Drawing.Point(6, 99);
+            this.lblTotalDailyExpense.Name = "lblTotalDailyExpense";
+            this.lblTotalDailyExpense.Size = new System.Drawing.Size(20, 24);
+            this.lblTotalDailyExpense.TabIndex = 3;
+            this.lblTotalDailyExpense.Text = "0";
+            // 
+            // lblTotalDailyIncome
+            // 
+            this.lblTotalDailyIncome.AutoSize = true;
+            this.lblTotalDailyIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDailyIncome.Location = new System.Drawing.Point(6, 44);
+            this.lblTotalDailyIncome.Name = "lblTotalDailyIncome";
+            this.lblTotalDailyIncome.Size = new System.Drawing.Size(20, 24);
+            this.lblTotalDailyIncome.TabIndex = 2;
+            this.lblTotalDailyIncome.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Total Expense";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Total Income";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblTotalWeeklyExpense);
@@ -188,25 +231,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Weekly Statistics";
             // 
-            // label1
+            // lblTotalWeeklyExpense
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Total Income";
+            this.lblTotalWeeklyExpense.AutoSize = true;
+            this.lblTotalWeeklyExpense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalWeeklyExpense.Location = new System.Drawing.Point(6, 99);
+            this.lblTotalWeeklyExpense.Name = "lblTotalWeeklyExpense";
+            this.lblTotalWeeklyExpense.Size = new System.Drawing.Size(20, 24);
+            this.lblTotalWeeklyExpense.TabIndex = 5;
+            this.lblTotalWeeklyExpense.Text = "0";
             // 
-            // label2
+            // lblTotalWeeklyIncome
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Total Expense";
+            this.lblTotalWeeklyIncome.AutoSize = true;
+            this.lblTotalWeeklyIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalWeeklyIncome.Location = new System.Drawing.Point(6, 44);
+            this.lblTotalWeeklyIncome.Name = "lblTotalWeeklyIncome";
+            this.lblTotalWeeklyIncome.Size = new System.Drawing.Size(20, 24);
+            this.lblTotalWeeklyIncome.TabIndex = 4;
+            this.lblTotalWeeklyIncome.Text = "0";
             // 
             // label3
             // 
@@ -227,46 +270,6 @@
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Total Income";
-            // 
-            // lblTotalDailyIncome
-            // 
-            this.lblTotalDailyIncome.AutoSize = true;
-            this.lblTotalDailyIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalDailyIncome.Location = new System.Drawing.Point(6, 44);
-            this.lblTotalDailyIncome.Name = "lblTotalDailyIncome";
-            this.lblTotalDailyIncome.Size = new System.Drawing.Size(20, 24);
-            this.lblTotalDailyIncome.TabIndex = 2;
-            this.lblTotalDailyIncome.Text = "0";
-            // 
-            // lblTotalDailyExpense
-            // 
-            this.lblTotalDailyExpense.AutoSize = true;
-            this.lblTotalDailyExpense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalDailyExpense.Location = new System.Drawing.Point(6, 99);
-            this.lblTotalDailyExpense.Name = "lblTotalDailyExpense";
-            this.lblTotalDailyExpense.Size = new System.Drawing.Size(20, 24);
-            this.lblTotalDailyExpense.TabIndex = 3;
-            this.lblTotalDailyExpense.Text = "0";
-            // 
-            // lblTotalWeeklyIncome
-            // 
-            this.lblTotalWeeklyIncome.AutoSize = true;
-            this.lblTotalWeeklyIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalWeeklyIncome.Location = new System.Drawing.Point(6, 44);
-            this.lblTotalWeeklyIncome.Name = "lblTotalWeeklyIncome";
-            this.lblTotalWeeklyIncome.Size = new System.Drawing.Size(20, 24);
-            this.lblTotalWeeklyIncome.TabIndex = 4;
-            this.lblTotalWeeklyIncome.Text = "0";
-            // 
-            // lblTotalWeeklyExpense
-            // 
-            this.lblTotalWeeklyExpense.AutoSize = true;
-            this.lblTotalWeeklyExpense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalWeeklyExpense.Location = new System.Drawing.Point(6, 99);
-            this.lblTotalWeeklyExpense.Name = "lblTotalWeeklyExpense";
-            this.lblTotalWeeklyExpense.Size = new System.Drawing.Size(20, 24);
-            this.lblTotalWeeklyExpense.TabIndex = 5;
-            this.lblTotalWeeklyExpense.Text = "0";
             // 
             // MainForm
             // 

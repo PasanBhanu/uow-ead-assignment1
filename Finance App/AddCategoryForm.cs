@@ -22,6 +22,14 @@ namespace Finance_App
 
         private void AddCategory(object sender, EventArgs e)
         {
+            // Validations
+            if (txtCategoryName.Text == "" || cmbCategoryType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill all the data fields!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            
+            // Create new category object
             Category category = new Category();
             category.Title = txtCategoryName.Text;
             if (cmbCategoryType.SelectedItem.ToString() == "Income")
@@ -31,7 +39,6 @@ namespace Finance_App
             else { 
                 category.Type = TransactionType.Expense; 
             }
-            category.MonthlyBudget = Double.Parse(txtMonthlyBudget.Text);
             category.CreateDatasetRow(DataStore);
 
             MessageBox.Show("Category added successfully!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Information);

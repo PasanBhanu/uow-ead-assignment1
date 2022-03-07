@@ -19,6 +19,7 @@ namespace Finance_App
         {
             InitializeComponent();
 
+            // Load categories from DB
             DataTable tblCategories = DataStore.Tables["Categories"];
             foreach (DataRow row in tblCategories.Rows)
             {
@@ -28,6 +29,14 @@ namespace Finance_App
 
         private void AddTransaction(object sender, EventArgs e)
         {
+            // Validations
+            if (txtDescription.Text == "" || txtAmount.Text == "" || cmbCategory.SelectedIndex == -1 || cmbTransactionType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill all the data fields!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Create new transaction object
             Transaction transaction = new Transaction();
             transaction.Description = txtDescription.Text;
             transaction.Amount = double.Parse(txtAmount.Text);
@@ -41,6 +50,7 @@ namespace Finance_App
             {
                 transaction.Type = TransactionType.Expense;
             }
+            // Get category id by title
             DataTable tblCategories = DataStore.Tables["Categories"];
             DataRow[] results = tblCategories.Select("Title = '" + cmbCategory.Text +"'");
             foreach (DataRow row in results)
@@ -51,6 +61,18 @@ namespace Finance_App
 
             MessageBox.Show("Transaction added successfully!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
+        }
+
+        private void AmountInlineValidation(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

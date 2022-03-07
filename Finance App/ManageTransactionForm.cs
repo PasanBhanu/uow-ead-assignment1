@@ -20,12 +20,15 @@ namespace Finance_App
         public ManageTransactionForm(int id)
         {
             InitializeComponent();
+
+            // Load categories from DB
             DataTable tblCategories = DataStore.Tables["Categories"];
             foreach (DataRow row in tblCategories.Rows)
             {
                 cmbCategory.Items.Add(row["Title"].ToString());
             }
 
+            // Load transaction object
             DataRow = (DataStore.TransactionsRow)DataStore.Tables["Transactions"].Rows.Find(id);
             transaction.LoadDatasetRow(DataRow);
 
@@ -39,6 +42,14 @@ namespace Finance_App
 
         private void UpdateTransaction(object sender, EventArgs e)
         {
+            // Validations
+            if (txtDescription.Text == "" || txtAmount.Text == "" || cmbCategory.SelectedIndex == -1 || cmbTransactionType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please fill all the data fields!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            // Update transaction object
             transaction.Description = txtDescription.Text;
             transaction.Amount = double.Parse(txtAmount.Text);
             transaction.Date = DateTime.Parse(dtpDate.Text);
@@ -51,6 +62,7 @@ namespace Finance_App
             {
                 transaction.Type = TransactionType.Expense;
             }
+            // Get category id by title
             DataTable tblCategories = DataStore.Tables["Categories"];
             DataRow[] results = tblCategories.Select("Title = '" + cmbCategory.Text + "'");
             foreach (DataRow row in results)

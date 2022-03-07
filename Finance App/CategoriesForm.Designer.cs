@@ -35,7 +35,6 @@
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.btnDeleteCategory = new System.Windows.Forms.Button();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listCategories
@@ -43,17 +42,17 @@
             this.listCategories.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader3});
             this.listCategories.FullRowSelect = true;
             this.listCategories.GridLines = true;
             this.listCategories.HideSelection = false;
             this.listCategories.Location = new System.Drawing.Point(12, 12);
             this.listCategories.Name = "listCategories";
-            this.listCategories.Size = new System.Drawing.Size(452, 285);
+            this.listCategories.Size = new System.Drawing.Size(353, 285);
             this.listCategories.TabIndex = 0;
             this.listCategories.UseCompatibleStateImageBehavior = false;
             this.listCategories.View = System.Windows.Forms.View.Details;
+            this.listCategories.SelectedIndexChanged += new System.EventHandler(this.DisplayCategoryOptions);
             // 
             // columnHeader1
             // 
@@ -80,7 +79,8 @@
             // 
             // btnEditCategory
             // 
-            this.btnEditCategory.Location = new System.Drawing.Point(308, 303);
+            this.btnEditCategory.Enabled = false;
+            this.btnEditCategory.Location = new System.Drawing.Point(209, 303);
             this.btnEditCategory.Name = "btnEditCategory";
             this.btnEditCategory.Size = new System.Drawing.Size(75, 23);
             this.btnEditCategory.TabIndex = 2;
@@ -90,7 +90,8 @@
             // 
             // btnDeleteCategory
             // 
-            this.btnDeleteCategory.Location = new System.Drawing.Point(389, 303);
+            this.btnDeleteCategory.Enabled = false;
+            this.btnDeleteCategory.Location = new System.Drawing.Point(290, 303);
             this.btnDeleteCategory.Name = "btnDeleteCategory";
             this.btnDeleteCategory.Size = new System.Drawing.Size(75, 23);
             this.btnDeleteCategory.TabIndex = 3;
@@ -98,21 +99,18 @@
             this.btnDeleteCategory.UseVisualStyleBackColor = true;
             this.btnDeleteCategory.Click += new System.EventHandler(this.DeleteCategory);
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Monthly Budget";
-            this.columnHeader4.Width = 100;
-            // 
             // CategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 338);
+            this.ClientSize = new System.Drawing.Size(376, 338);
             this.Controls.Add(this.btnDeleteCategory);
             this.Controls.Add(this.btnEditCategory);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.listCategories);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CategoriesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categories";
@@ -130,6 +128,5 @@
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnEditCategory;
         private System.Windows.Forms.Button btnDeleteCategory;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
