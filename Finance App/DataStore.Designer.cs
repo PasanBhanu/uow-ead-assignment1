@@ -327,8 +327,6 @@ namespace Finance_App {
             
             private global::System.Data.DataColumn columnType;
             
-            private global::System.Data.DataColumn columnMonthlyBudget;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CategoriesDataTable() {
@@ -388,14 +386,6 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn MonthlyBudgetColumn {
-                get {
-                    return this.columnMonthlyBudget;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -431,13 +421,12 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CategoriesRow AddCategoriesRow(string Title, int Type, double MonthlyBudget) {
+            public CategoriesRow AddCategoriesRow(string Title, int Type) {
                 CategoriesRow rowCategoriesRow = ((CategoriesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Title,
-                        Type,
-                        MonthlyBudget};
+                        Type};
                 rowCategoriesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCategoriesRow);
                 return rowCategoriesRow;
@@ -470,7 +459,6 @@ namespace Finance_App {
                 this.columnId = base.Columns["Id"];
                 this.columnTitle = base.Columns["Title"];
                 this.columnType = base.Columns["Type"];
-                this.columnMonthlyBudget = base.Columns["MonthlyBudget"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -482,15 +470,12 @@ namespace Finance_App {
                 base.Columns.Add(this.columnTitle);
                 this.columnType = new global::System.Data.DataColumn("Type", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnType);
-                this.columnMonthlyBudget = new global::System.Data.DataColumn("MonthlyBudget", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonthlyBudget);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("CategoryKey", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
                 this.columnId.AutoIncrementSeed = 1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
-                this.columnMonthlyBudget.DefaultValue = ((double)(0D));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1023,22 +1008,6 @@ namespace Finance_App {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double MonthlyBudget {
-                get {
-                    try {
-                        return ((double)(this[this.tableCategories.MonthlyBudgetColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MonthlyBudget\' in table \'Categories\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCategories.MonthlyBudgetColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTitleNull() {
                 return this.IsNull(this.tableCategories.TitleColumn);
             }
@@ -1059,18 +1028,6 @@ namespace Finance_App {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTypeNull() {
                 this[this.tableCategories.TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsMonthlyBudgetNull() {
-                return this.IsNull(this.tableCategories.MonthlyBudgetColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetMonthlyBudgetNull() {
-                this[this.tableCategories.MonthlyBudgetColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

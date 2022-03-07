@@ -18,7 +18,6 @@
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" type="xs:int" />
               <xs:element name="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_UserColumnName="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" type="xs:string" minOccurs="0" />
               <xs:element name="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType" type="xs:int" minOccurs="0" />
-              <xs:element name="MonthlyBudget" msprop:Generator_ColumnPropNameInTable="MonthlyBudgetColumn" msprop:Generator_ColumnPropNameInRow="MonthlyBudget" msprop:Generator_UserColumnName="MonthlyBudget" msprop:Generator_ColumnVarNameInTable="columnMonthlyBudget" type="xs:double" default="0" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -31,7 +30,7 @@
               <xs:element name="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" type="xs:double" minOccurs="0" />
               <xs:element name="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" type="xs:dateTime" minOccurs="0" />
               <xs:element name="IsRecurring" msprop:Generator_ColumnPropNameInTable="IsRecurringColumn" msprop:Generator_ColumnPropNameInRow="IsRecurring" msprop:Generator_UserColumnName="IsRecurring" msprop:Generator_ColumnVarNameInTable="columnIsRecurring" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnVarNameInTable="columnType" type="xs:int" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -48,7 +47,7 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Categories_Transactions" msdata:parent="Categories" msdata:child="Transactions" msdata:parentkey="Id" msdata:childkey="CategoryId" msprop:Generator_UserParentTable="Categories" msprop:Generator_UserChildTable="Transactions" msprop:Generator_RelationVarName="relationCategories_Transactions" msprop:Generator_ChildPropName="GetTransactionsRows" msprop:Generator_UserRelationName="Categories_Transactions" msprop:Generator_ParentPropName="CategoriesRow" />
+      <msdata:Relationship name="Categories_Transactions" msdata:parent="Categories" msdata:child="Transactions" msdata:parentkey="Id" msdata:childkey="CategoryId" msprop:Generator_UserParentTable="Categories" msprop:Generator_UserChildTable="Transactions" msprop:Generator_RelationVarName="relationCategories_Transactions" msprop:Generator_ChildPropName="GetTransactionsRows" msprop:Generator_ParentPropName="CategoriesRow" msprop:Generator_UserRelationName="Categories_Transactions" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
