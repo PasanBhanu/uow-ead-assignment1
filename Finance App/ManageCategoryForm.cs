@@ -38,6 +38,14 @@ namespace Finance_App
                 return;
             }
 
+            DataTable tblCategories = DataStore.Tables["Categories"];
+            DataRow[] results = tblCategories.Select("Title = '" + txtCategoryName.Text + "' AND Id <> '" + category.Id + "'");
+            if (results.Length > 0)
+            {
+                MessageBox.Show("Category with the same name already exists. Please use a different name!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             // Update category object
             category.Title = txtCategoryName.Text;
             if (cmbCategoryType.SelectedItem.ToString() == "Income")

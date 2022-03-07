@@ -28,7 +28,15 @@ namespace Finance_App
                 MessageBox.Show("Please fill all the data fields!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
+            DataTable tblCategories = DataStore.Tables["Categories"];
+            DataRow[] results = tblCategories.Select("Title = '" + txtCategoryName.Text + "'");
+            if (results.Length > 0)
+            {
+                MessageBox.Show("Category with the same name already exists. Please use a different name!", "Simply Finance App", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             // Create new category object
             Category category = new Category();
             category.Title = txtCategoryName.Text;
